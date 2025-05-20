@@ -1,27 +1,21 @@
-import { useState } from "react"
+import { BrowserRouter , Routes, Route } from "react-router-dom"
+import Dashboard from"./pages/Dashboard"
+import Login from "./pages/Login"
+import Register from "./pages/register"
+import PageNotFound from "./pages/PageNotFound"
 
-import { Sample } from "./components/Sample"
+function App(){
 
-function App() {
-const [count, setCount] =useState(0) 
-//console.log(name)
-const myName="Anandhi"
-const myAge = 34
-const myDept = "IT" 
-const c =()=>{
-}
   return (
-    <>
-      
-      
-       <h1> my react app</h1>
 
-       <h1 className="text-3xl font-bold underline text-purple-600 "> hello </h1>
-      
-   {/*} <Sample myName = {myName} myAge = {myAge} myDept = {myDept} />*/}
-    <button className="bg-amber-400 p-2" onClick={()=> setCount(count +1 )}> clickMe {count}</button>
-    <Sample count= {count}/>
-    </>
+    <BrowserRouter>
+     <Routes>
+      <Route path="/" element={<Dashboard/>}/>
+      <Route path="/login" element={<Login/>}/>
+      <Route path="/register" element={<Register/>}/>
+      <Route path="*" element={ <PageNotFound/>}/>
+     </Routes>
+    </BrowserRouter>
   )
 } 
 export default App
